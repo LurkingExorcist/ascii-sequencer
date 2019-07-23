@@ -1,0 +1,273 @@
+body {
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 18px;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+} 
+
+main {    
+  min-height: 100vh;
+  padding-top: 4px;
+  padding-right: 64px;
+  padding-left: 64px;
+  
+  display: grid;
+  grid-template-areas:
+    'top-nav top-nav'
+    'instruments info-area';
+  grid-template-rows: 38px 95%;
+  grid-template-columns: 30% 69%;
+  grid-gap: 1vw;
+  /*margin: auto;*/
+}
+
+.instruments {
+  grid-area: instruments;
+  overflow: auto;
+}
+
+.top-nav {
+  grid-area: top-nav;
+  background: rgba(240, 240, 240);
+}
+
+.logo {
+  float: right;
+  margin-top: 4px;
+}
+
+.mobile-only {
+  display: none;
+}
+
+.side-panel {
+  background: linear-gradient(180deg, rgba(240, 240, 240) 0%, rgba(240, 240, 240) 50%, rgba(255, 255, 255, 0.3) 100%);
+}
+
+@media (max-width: 600px) {
+  main {
+    padding-right: 8px;
+    padding-left: 8px;
+    grid-template-rows: 64px 95%;
+  }
+  
+  .mobile-only {
+/*     display: block; */
+  }
+  
+  .instruments {
+/*     background: rgba(230, 230, 230); */
+  }
+  
+  .logo {
+/*     float: none;
+    display: inline-table; */
+/*     font-size: 16px */
+  }
+  
+  .top-nav {
+/*     background: rgba(220, 220, 220); */
+  }
+}
+
+@media (max-width: 400px) {
+  main {
+    margin: auto;
+    padding-right: 0px;
+    padding-left: 0px;
+    grid-template-areas:
+      'top-nav'
+      'instruments'
+      'info-area';
+    grid-template-rows: 64px 256px 95%;
+    grid-template-columns: 100%;
+  }
+  .logo {
+    font-size: 14px
+  }
+}
+
+ul {
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  padding-left: 20px;
+}
+
+li {
+  list-style-type: circle;
+}
+
+
+li li {
+  list-style-type: disc;
+}
+
+li li li {
+  list-style-type: square;
+}
+
+.instr-opts {
+  /*overflow: scroll;*/
+}
+
+.setting {
+  display: flex;
+}
+
+.setting-input {
+  margin-left: 4px;
+  width: 100%;
+}
+
+.disabled {
+  margin-left: 4px;
+}
+
+.instr-name {
+  width: 100%;
+  display: flex;
+}
+
+input {
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 18px;
+  
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.content {
+  padding: 14px;
+}
+
+.info-area {
+  grid-area: info-area;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.container, .highlights, .editor, .editor-background {
+  height: 100vh;
+}
+
+.highlights, .editor, .editor-background {
+  width: 99%;
+  padding: 0px;
+  border: none;
+}
+
+.container {
+  margin-bottom: 8px;
+  display: block;
+  transform: translateZ(0);
+  -webkit-text-size-adjust: none;
+}
+
+.highlights, .editor, .editor-background {
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+/* .backdrop {
+  position: absolute;
+  z-index: 1;
+  background-color: transparent;
+  overflow: auto;
+  pointer-events: none;
+  transition: transform 1s;
+} */
+
+.highlights, .editor-background {
+  margin: 0px;
+  
+  word-wrap: break-word;
+  color: transparent;
+  background-size: 18px 16px;
+  background-image: 
+    linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px);
+  
+  display: -webkit-inline-box;
+  background-attachment: local;
+  
+  position: absolute;
+  z-index: 2;
+  overflow: auto;
+  pointer-events: none;
+  transition: transform 1s;
+}
+.editor-background {
+  background-size: 144px 16px;
+  background-image: 
+    linear-gradient(to right, rgba(0,0,0,0.05) 72px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px);
+}
+
+mark {
+  color: transparent;
+}
+
+.perspective .backdrop {
+  transform:
+    perspective(1500px)
+    translateX(-125px)
+    rotateY(45deg)
+    scale(.9);
+}
+
+.perspective textarea {
+  transform:
+    perspective(1500px)
+    translateX(155px)
+    rotateY(45deg)
+    scale(1.1);
+}
+
+.editor {
+  border-right: 1px solid rgba(0,0,0,0.1);
+  
+  font-size: 16px;
+  background-color: transparent;
+  outline: none;
+  resize: none;
+  
+  background: transparent;
+  
+  white-space: pre;
+  display: block;
+  position: absolute;
+  z-index: 2;
+  margin: 0;
+  overflow: auto;
+  transition: transform 1s;
+}
+
+.nav-item {
+  float: left;
+  margin-right: 8px;
+  padding-top: 8px;
+}
+
+.nav-items {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.hoverable:hover {
+  cursor: pointer;
+  background: rgba(0,0,50,0.2);
+}
+
+.logo-even {
+  padding-top: 8px;
+}
+
+.logo-odd {
+  padding-bottom: 8px;
+}
